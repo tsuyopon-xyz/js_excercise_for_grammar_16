@@ -12,8 +12,35 @@
 //     - https://developer.mozilla.org/ja/docs/Web/API/WindowOrWorkerGlobalScope/fetch
 
 
-// 課題2: fetchMultipleQuizDataメソッドを実行してAPIの結果に含まれるresultsプロパティの値をconsole.logで出力する
 
+
+const url = 'https://opentdb.com/api.php?amount=10';
+
+class QuizFetcher {
+    static fetchMultipleQuizData() {
+        return fetch(`${url}&type=multiple`).then(response => {
+            response.json();
+        });
+    }
+
+    static fetchTrueOrFalseQuizData() {
+        return fetch(`${url}&type=boolean`).then(response => {
+            response.json();
+        });
+    }
+}
+
+// 課題2: fetchMultipleQuizDataメソッドを実行してAPIの結果に含まれるresultsプロパティの値をconsole.logで出力する
+QuizFetcher
+    .fetchMultipleQuizData()
+    .then(data => {
+        console.log(data.results);
+    });
 
 // 課題3: fetchTrueOrFalseQuizDataメソッドを実行してAPIの結果に含まれるresultsプロパティの値をconsole.logで出力する
+QuizFetcher
+    .fetchTrueOrFalseQuizData()
+    .then(data => {
+        console.log(data.results);
+    });
 
