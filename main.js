@@ -19,13 +19,13 @@ const url = 'https://opentdb.com/api.php?amount=10';
 class QuizFetcher {
     static fetchMultipleQuizData() {
         return fetch(`${url}&type=multiple`).then(response => {
-            response.json();
+            return response.json();
         });
     }
 
     static fetchTrueOrFalseQuizData() {
         return fetch(`${url}&type=boolean`).then(response => {
-            response.json();
+            return response.json();
         });
     }
 }
